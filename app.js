@@ -35,7 +35,7 @@ app.get('/sales-per-year', (req, res) => {
   if (req.query.filter) {
     having = 'HAVING';
 
-    // Taking the query paramaters from the URL and making them an array ignoring the comma, then using map to make them an integer, having is the string that we are building for the SQL query
+    // Taking the query paramaters from the URL and making them an array ignoring the comma, then using map to make them an integer, having is the string that we are building for the SQL query, ?filter[year]=2009,2011 in the URL is from JSONAPI and Express knows that should be req.query
     req.query.filter.year
       .split(',')
       .map(y => +y)
